@@ -90,11 +90,19 @@ public class ScriptCreatorController {
         }
     }
 
+    /**
+     * Checks that the info vital for creating the file is present
+     * @return a boolean representing approval to continue
+     */
     private boolean checkImportantFields() {
         return !(chapterField.getText().equals("") && sceneField.getText().equals("")
                     && scriptField.getText().equals(""));
     }
 
+    /**
+     * Creates the file that will be saved
+     * @return the file that has been created
+     */
     private File createFile() {
         try {
             String fileName = "Script" + chapterField.getText()
@@ -114,6 +122,9 @@ public class ScriptCreatorController {
         return null;
     }
 
+    /**
+     * Saves the main header data
+     */
     private void saveImportantData() {
         String scriptName = "Script " + chapterField.getText() + "-" + sceneField.getText()
                 + "-" + scriptField.getText();
@@ -123,6 +134,9 @@ public class ScriptCreatorController {
         writer.println();
     }
 
+    /**
+     * Saves the choice data
+     */
     private void saveChoices() {
         //Choice One Stuff
         String choiOneName = choiceOneName.getText();
@@ -156,6 +170,9 @@ public class ScriptCreatorController {
         }
     }
 
+    /**
+     * Saves the description text data
+     */
     private void saveDescriptionText() {
         writer.println(descriptionTextField.getText());
         writer.println();

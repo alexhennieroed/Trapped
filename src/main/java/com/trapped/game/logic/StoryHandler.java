@@ -25,6 +25,10 @@ public class StoryHandler implements Serializable {
     private Character currentCharacter;
     private HashMap<String, Character> characterList;
 
+    /**
+     * Creates a new Story Handler object
+     * @param app the app that is using the story handler
+     */
     public StoryHandler(TrappedGame app) {
         this.app = app;
         characterList = makeCharacters();

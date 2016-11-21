@@ -7,6 +7,9 @@ package main.java.com.trapped.game.model;
  */
 public interface Action {
 
+    /**
+     * Does something
+     */
     void doAction();
 
 }

@@ -37,6 +37,9 @@ public class GameScreenController extends ScreenController {
         updateScript();
     }
 
+    /**
+     * Updates the UI with the new script's data
+     */
     private void updateScript() {
         descriptionTextLabel.setText(script.getDescriptionText());
         choicesListView.setItems(script.getChoices());

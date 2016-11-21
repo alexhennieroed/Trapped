@@ -10,6 +10,11 @@ public class Choice {
     private String name;
     private Action action;
 
+    /**
+     * Creates a new choice object
+     * @param name the name of the choice
+     * @param action the action associated with the choice
+     */
     public Choice(String name, Action action) {
         this.name = name;
         this.action = action;
