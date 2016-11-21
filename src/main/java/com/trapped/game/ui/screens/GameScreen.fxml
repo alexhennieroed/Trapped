@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.trapped.game.ui.screencontrollers.GameScreenController">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="350.0" prefWidth="800.0">
+         <content>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="descriptionTextLabel" alignment="CENTER" contentDisplay="CENTER" lineSpacing="0.5" text="Description Text Here" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </content>
+      </ScrollPane>
+      <ListView fx:id="choicesListView" onMouseClicked="#makeChoice" prefHeight="250.0" prefWidth="800.0" />
+   </children>
+</VBox>
