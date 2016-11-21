@@ -3,6 +3,7 @@ package main.java.com.trapped.game.ui.screencontrollers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import main.java.com.trapped.game.fxapp.TrappedGame;
 import main.java.com.trapped.game.model.Choice;
 import main.java.com.trapped.game.model.Script;
 
@@ -22,7 +23,15 @@ public class GameScreenController extends ScreenController {
 
     @FXML
     public void initialize() {
-        script = app.getStoryHandler().getScript();
+        if (myApp == null) {
+            System.out.println("The app is null in GSC");
+            System.exit(21);
+        }
+        if (myApp.getStoryHandler() == null) {
+            System.out.println("The story handler is null in GCS.");
+            System.exit(21);
+        }
+        script = myApp.getStoryHandler().getScript();
         updateScript();
     }
 
@@ -32,8 +41,8 @@ public class GameScreenController extends ScreenController {
         if (choice != null) {
             choice.doAction();
         }
-        app.getStoryHandler().progressStory();
-        script = app.getStoryHandler().getScript();
+        myApp.getStoryHandler().progressStory();
+        script = myApp.getStoryHandler().getScript();
         updateScript();
     }
 

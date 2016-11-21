@@ -9,14 +9,18 @@ import main.java.com.trapped.game.fxapp.TrappedGame;
  */
 public class ScreenController {
 
-    protected TrappedGame app;
+    protected TrappedGame myApp;
 
     /**
      * Sets the app value of the ScreenController
      * @param app the app for which to set the screen
      */
     public void setApp(TrappedGame app) {
-        this.app = app;
+        myApp = app;
+        if (myApp == null) {
+            System.out.println("App is null in SC\nNot sure how to fix this one, boss.");
+            System.exit(1);
+        }
     }
 
 }

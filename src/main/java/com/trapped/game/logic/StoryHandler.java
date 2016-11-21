@@ -19,8 +19,9 @@ import java.util.List;
  */
 public class StoryHandler implements Serializable {
 
-    private TrappedGame app;
+    private TrappedGame myApp;
     private ScriptLoader sl;
+    private List<Choice> playerDecisions;
     private Script currentScript;
     private Character currentCharacter;
     private HashMap<String, Character> characterList;
@@ -30,18 +31,24 @@ public class StoryHandler implements Serializable {
      * @param app the app that is using the story handler
      */
     public StoryHandler(TrappedGame app) {
-        this.app = app;
+        this.myApp = app;
+        if (myApp == null) {
+            System.out.println("The app is null in StoryHandler init.");
+            System.exit(21);
+        }
         characterList = makeCharacters();
-        sl = new ScriptLoader(app);
+        sl = new ScriptLoader(myApp, this);
         currentScript = sl.loadScript("0-0-00");
-        currentCharacter = currentScript.getViewingCharacter();
+        //currentCharacter = currentScript.getViewingCharacter();
     }
 
     /**
      * Moves the story forward by intelligently selecting scripts
+     * based on the player's decisions
      */
     public void progressStory() {
         //TODO
+        System.out.println("Progressing story...");
     }
 
     /**
@@ -50,8 +57,16 @@ public class StoryHandler implements Serializable {
      */
     public Script getScript() { return currentScript; }
 
+    /**
+     * Returns the list of characters
+     * @return a HashMap of the characters
+     */
     public HashMap<String, Character> getCharacterList() { return characterList; }
 
+    /**
+     * Initializes the list of characters for the handler
+     * @return a hash map of characters
+     */
     private HashMap<String, Character> makeCharacters() {
         HashMap<String, Character> list = new HashMap<>();
         list.put("Luke", new Character("Luke"));
@@ -67,5 +82,17 @@ public class StoryHandler implements Serializable {
         }
         return list;
     }
+
+    /**
+     * Returns the list of choices the player has made
+     * @return the list of choices
+     */
+    public List<Choice> getPlayerDecisions() { return playerDecisions; }
+
+    /**
+     * Adds a new choice to the list of player choices
+     * @param c the choice to add
+     */
+    public void addPlayerDecision(Choice c) { playerDecisions.add(c); }
 
 }

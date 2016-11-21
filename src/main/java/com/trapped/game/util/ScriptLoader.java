@@ -2,6 +2,7 @@ package main.java.com.trapped.game.util;
 
 import javafx.collections.FXCollections;
 import main.java.com.trapped.game.fxapp.TrappedGame;
+import main.java.com.trapped.game.logic.StoryHandler;
 import main.java.com.trapped.game.model.Character;
 import main.java.com.trapped.game.model.Choice;
 import main.java.com.trapped.game.model.Script;
@@ -18,10 +19,12 @@ import java.util.Scanner;
 public class ScriptLoader {
 
     private TrappedGame app;
+    private StoryHandler handler;
     private Scanner scanner;
 
-    public ScriptLoader(TrappedGame app) {
+    public ScriptLoader(TrappedGame app, StoryHandler handler) {
         this.app = app;
+        this.handler = handler;
     }
 
     /**
@@ -41,7 +44,7 @@ public class ScriptLoader {
             System.out.println("Error finding the file.");
             e.printStackTrace();
         }
-        return new Script("Default", app.getStoryHandler().getCharacterList().get("Luke"), "Default Text",
+        return new Script("Default", handler.getCharacterList().get("Luke"), "Default Text",
                 FXCollections.observableArrayList(new Choice("Default Action", () -> app.setScreen("TitleScreen"))));
     }
 

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import main.java.com.trapped.game.fxapp.TrappedGame;
 import main.java.com.trapped.game.model.Choice;
 /**
  * Controls the functionality of TitleScreen.fxml
@@ -18,7 +19,7 @@ public class TitleScreenController extends ScreenController {
     @FXML
     public void initialize() {
         ObservableList<Choice> menuChoices = FXCollections.observableArrayList(
-                new Choice("New Game", () -> app.setScreen("GameScreen")),
+                new Choice("New Game", () -> myApp.setScreen("GameScreen")),
                 new Choice("Load Game", () -> System.out.println("Loading game...")),
                 new Choice("Exit", () -> System.exit(21)));
         menuChoicesListView.setItems(menuChoices);
