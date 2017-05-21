@@ -1,5 +1,6 @@
 package main.java.com.trapped.game.model;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -25,6 +26,17 @@ public class Script {
         this.viewingCharacter = viewingCharacter;
         this.descriptionText = descriptionText;
         this.choices = choices;
+    }
+
+    /**
+     * No parameter script constructor
+     */
+    public Script() {
+        this.name = "Default";
+        this.viewingCharacter = new Character("Default");
+        this.descriptionText = "Default Text";
+        this.choices = FXCollections.observableArrayList(new Choice("Default Action",
+                () -> System.out.println("Default")));
     }
 
     /**

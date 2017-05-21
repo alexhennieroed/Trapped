@@ -47,6 +47,7 @@ public class TrappedGame extends Application {
             mainStage.setScene(new Scene(loader.load()));
             ScreenController controller = loader.getController();
             controller.setApp(this);
+            controller.setup();
         } catch (IOException e) {
             System.out.println("Error loading screen: " + screenName);
             System.out.println(e.getMessage());

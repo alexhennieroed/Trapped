@@ -21,14 +21,14 @@ public class GameScreenController extends ScreenController {
 
     private Script script;
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void setup() {
         if (myApp == null) {
             System.out.println("The app is null in GSC");
             System.exit(21);
         }
         if (myApp.getStoryHandler() == null) {
-            System.out.println("The story handler is null in GCS.");
+            System.out.println("The story handler is null in GSC.");
             System.exit(21);
         }
         script = myApp.getStoryHandler().getScript();

@@ -39,10 +39,16 @@ public class ScriptCreatorController {
     private TextField choiceOneAction;
 
     @FXML
+    private TextField choiceOneNextScript;
+
+    @FXML
     private TextField choiceTwoName;
 
     @FXML
     private TextField choiceTwoAction;
+
+    @FXML
+    private TextField choiceTwoNextScript;
 
     @FXML
     private TextField choiceThreeName;
@@ -51,16 +57,25 @@ public class ScriptCreatorController {
     private TextField choiceThreeAction;
 
     @FXML
+    private TextField choiceThreeNextScript;
+
+    @FXML
     private TextField choiceFourName;
 
     @FXML
     private TextField choiceFourAction;
 
     @FXML
+    private TextField choiceFourNextScript;
+
+    @FXML
     private TextField choiceFiveName;
 
     @FXML
     private TextField choiceFiveAction;
+
+    @FXML
+    private TextField choiceFiveNextScript;
 
     @FXML
     private TextArea descriptionTextField;
@@ -155,32 +170,42 @@ public class ScriptCreatorController {
         //Choice One Stuff
         String choiOneName = choiceOneName.getText();
         String choiOneAction = choiceOneAction.getText();
+        String choiOneNextScript = choiceOneNextScript.getText();
         if (!choiOneName.equals("") && !choiOneAction.equals("")) {
-            writer.println(choiOneName + ":" + choiOneAction);
+            writer.println(choiOneName + ":" + choiOneAction +
+                "|" + choiOneNextScript);
         }
         //Choice Two Stuff
         String choiTwoName = choiceTwoName.getText();
         String choiTwoAction = choiceTwoAction.getText();
+        String choiTwoNextScript = choiceTwoNextScript.getText();
         if (!choiTwoName.equals("") && !choiTwoAction.equals("")) {
-            writer.println(choiTwoName + ":" + choiTwoAction);
+            writer.println(choiTwoName + ":" + choiTwoAction +
+                "|" + choiTwoNextScript);
         }
         //Choice Three Stuff
         String choiThreeName = choiceThreeName.getText();
         String choiThreeAction = choiceThreeAction.getText();
+        String choiThreeNextScript = choiceThreeNextScript.getText();
         if (!choiThreeName.equals("") && !choiThreeAction.equals("")) {
-            writer.println(choiThreeName + ":" + choiThreeAction);
+            writer.println(choiThreeName + ":" + choiThreeAction +
+                "|" + choiThreeNextScript);
         }
         //Choice Four Stuff
         String choiFourName = choiceFourName.getText();
         String choiFourAction = choiceFourAction.getText();
+        String choiFourNextScript = choiceFourNextScript.getText();
         if (!choiFourName.equals("") && !choiFourAction.equals("")) {
-            writer.println(choiFourName + ":" + choiFourAction);
+            writer.println(choiFourName + ":" + choiFourAction +
+                "|" + choiFourNextScript);
         }
         //Choice Five Stuff
         String choiFiveName = choiceFiveName.getText();
         String choiFiveAction = choiceFiveAction.getText();
+        String choiFiveNextScript = choiceFiveNextScript.getText();
         if (!choiFiveName.equals("") && !choiFiveAction.equals("")) {
-            writer.println(choiFiveName + ":" + choiFiveAction);
+            writer.println(choiFiveName + ":" + choiFiveAction +
+                "|" + choiFiveNextScript);
         }
     }
 

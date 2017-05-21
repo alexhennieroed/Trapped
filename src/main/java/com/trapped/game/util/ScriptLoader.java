@@ -34,18 +34,21 @@ public class ScriptLoader {
      */
     public Script loadScript(String scriptName) {
         try {
-            Script script;
-            String[] brokenName = scriptName.split("-");
+            Script script = new Script();
             String workingDirectory = System.getProperty("user.dir");
-            File file = new File(workingDirectory + "/src/main/resources/scripts/Chapter" +
-                    brokenName[0] + "/Scene" + brokenName[1] + "/Script" + scriptName + ".script");
+            File file = new File(workingDirectory + "/src/main/resources/scripts/Script" + scriptName + ".script");
             scanner = new Scanner(file);
+
+            //Gather the header data
+
+
+            //Gather the choice data
+
         } catch (IOException e) {
             System.out.println("Error finding the file.");
             e.printStackTrace();
         }
-        return new Script("Default", handler.getCharacterList().get("Luke"), "Default Text",
-                FXCollections.observableArrayList(new Choice("Default Action", () -> app.setScreen("TitleScreen"))));
+        return new Script();
     }
 
 }

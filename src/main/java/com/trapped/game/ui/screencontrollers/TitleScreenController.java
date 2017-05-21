@@ -16,8 +16,8 @@ public class TitleScreenController extends ScreenController {
     @FXML
     private ListView menuChoicesListView;
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void setup() {
         ObservableList<Choice> menuChoices = FXCollections.observableArrayList(
                 new Choice("New Game", () -> myApp.setScreen("GameScreen")),
                 new Choice("Load Game", () -> System.out.println("Loading game...")),

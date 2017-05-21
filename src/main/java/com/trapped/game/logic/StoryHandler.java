@@ -39,7 +39,7 @@ public class StoryHandler implements Serializable {
         characterList = makeCharacters();
         sl = new ScriptLoader(myApp, this);
         currentScript = sl.loadScript("0-0-00");
-        //currentCharacter = currentScript.getViewingCharacter();
+        currentCharacter = currentScript.getViewingCharacter();
     }
 
     /**

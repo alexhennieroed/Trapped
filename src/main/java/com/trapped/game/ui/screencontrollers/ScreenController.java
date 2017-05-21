@@ -23,4 +23,8 @@ public class ScreenController {
         }
     }
 
+    public void setup() {
+        System.out.println("Setup in SC does nothing.");
+    }
+
 }
