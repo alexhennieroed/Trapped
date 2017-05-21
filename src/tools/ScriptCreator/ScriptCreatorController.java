@@ -2,6 +2,7 @@ package tools.ScriptCreator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -68,15 +69,26 @@ public class ScriptCreatorController {
     private Button saveButton;
 
     @FXML
+    private Label message;
+
+    @FXML
+    public void initialize() {
+        message.setText("");
+    }
+
+    @FXML
     private void saveScript() {
         try {
+            message.setVisible(false);
             if (!checkImportantFields()) {
-                System.out.println("Important fields are missing info.\nCannot save file.");
+                message.setText("Important fields are missing info. Cannot save file.");
+                message.setVisible(true);
                 return;
             }
             File file = createFile();
             if (file == null) {
-                System.out.println("Error in creating the file");
+                message.setText("Error in creating the file");
+                message.setVisible(true);
                 return;
             }
             writer = new PrintWriter(file);
@@ -84,9 +96,11 @@ public class ScriptCreatorController {
             saveDescriptionText();
             saveChoices();
             writer.close();
-            System.out.println("File has been saved successfully.");
+            message.setText("File has been saved successfully.");
+            message.setVisible(true);
         } catch (FileNotFoundException e) {
-            System.out.println("Could not locate the created file.");
+            message.setText("Could not locate the created file.");
+            message.setVisible(true);
         }
     }
 
