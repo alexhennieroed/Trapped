@@ -1,14 +1,12 @@
 package main.java.com.trapped.game.logic;
 
-import javafx.collections.FXCollections;
 import main.java.com.trapped.game.fxapp.TrappedGame;
+import main.java.com.trapped.game.gamedata.Settings;
 import main.java.com.trapped.game.model.Character;
 import main.java.com.trapped.game.model.Choice;
 import main.java.com.trapped.game.model.Script;
-import main.java.com.trapped.game.util.ScriptLoader;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,7 +18,6 @@ import java.util.List;
 public class StoryHandler implements Serializable {
 
     private TrappedGame myApp;
-    private ScriptLoader sl;
     private List<Choice> playerDecisions;
     private Script currentScript;
     private Character currentCharacter;
@@ -37,7 +34,6 @@ public class StoryHandler implements Serializable {
             System.exit(21);
         }
         characterList = makeCharacters();
-        sl = new ScriptLoader(myApp, this);
         currentScript = null;
         currentCharacter = null;
     }
@@ -50,7 +46,7 @@ public class StoryHandler implements Serializable {
         if (currentScript == null) {
             newScript = "0-0-00";
         }
-        currentScript = sl.loadScript(newScript);
+        currentScript = myApp.getSl().loadScript(newScript);
         currentCharacter = currentScript.getViewingCharacter();
     }
 
@@ -72,10 +68,9 @@ public class StoryHandler implements Serializable {
      */
     private HashMap<String, Character> makeCharacters() {
         HashMap<String, Character> list = new HashMap<>();
-        list.put("Luke", new Character("Luke"));
-        list.put("Jerry", new Character("Jerry"));
-        list.put("Sam", new Character("Sam"));
-        list.put("Lindsey", new Character("Lindsey"));
+        for (String name : Settings.CHARACTERS_ARRAY) {
+
+        }
         for (Character c : list.values()) {
             for (Character c2 : list.values()) {
                 if (!c.equals(c2)) {

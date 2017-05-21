@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import main.java.com.trapped.game.fxapp.TrappedGame;
+import main.java.com.trapped.game.gamedata.Settings;
 import main.java.com.trapped.game.model.Action;
 import main.java.com.trapped.game.model.Choice;
 /**
@@ -21,6 +22,9 @@ public class TitleScreenController extends ScreenController {
     @FXML
     private Label authorLabel;
 
+    @FXML
+    private Label titleLabel;
+
     @Override
     public void setup() {
         ObservableList<Choice> menuChoices = FXCollections.observableArrayList(
@@ -34,7 +38,8 @@ public class TitleScreenController extends ScreenController {
                 new Choice("Load Game", () -> System.out.println("Loading game...")),
                 new Choice("Exit", () -> System.exit(21)));
         menuChoicesListView.setItems(menuChoices);
-        authorLabel.setText("A game by Alexander Hennie-Roed");
+        titleLabel.setText(Settings.GAME_TITLE);
+        authorLabel.setText("A game by " + Settings.GAME_AUTHOR);
     }
 
     @FXML

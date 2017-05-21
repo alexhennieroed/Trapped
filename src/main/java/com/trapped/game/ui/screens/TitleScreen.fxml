@@ -10,7 +10,7 @@
    <top>
       <VBox prefHeight="336.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="0.5" prefHeight="350.0" prefWidth="800.0" text="Trapped" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" lineSpacing="0.5" prefHeight="350.0" prefWidth="800.0" text="Name" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="High Tower Text" size="96.0" />
                </font>

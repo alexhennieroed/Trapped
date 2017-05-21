@@ -1,19 +1,21 @@
 package main.java.com.trapped.game.model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Represents an script for the game
  * @author Alexander Hennie-Roed
  * @version 1.0.0
  */
-public class Script {
+public class Script implements Serializable {
 
     private String name;
     private String descriptionText;
     private Character viewingCharacter;
-    private ObservableList<Choice> choices;
+    private List<Choice> choices;
 
     /**
      * Creates a new script
@@ -21,7 +23,7 @@ public class Script {
      * @param descriptionText the dialogue and action occurring in the moment
      * @param choices the possible choices to make
      */
-    public Script(String name, Character viewingCharacter, String descriptionText, ObservableList<Choice> choices) {
+    public Script(String name, Character viewingCharacter, String descriptionText, List<Choice> choices) {
         this.name = name;
         this.viewingCharacter = viewingCharacter;
         this.descriptionText = descriptionText;
@@ -33,8 +35,8 @@ public class Script {
      */
     public Script() {
         this("Default", new Character("Default"), "Default Text",
-                FXCollections.observableArrayList(new Choice("Default Action",
-                () -> System.out.println("Default"))));
+                new ArrayList<>(Arrays.asList(new Choice("Default Action",
+                        () -> System.out.println("Default")))));
     }
 
     /**
@@ -53,7 +55,7 @@ public class Script {
      * Returns the choices for the script
      * @return an observable list with the choices
      */
-    public ObservableList<Choice> getChoices() { return choices; }
+    public List<Choice> getChoices() { return choices; }
 
     /**
      * Returns the character who is the "I" in the script

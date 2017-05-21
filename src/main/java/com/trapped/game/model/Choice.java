@@ -1,5 +1,7 @@
 package main.java.com.trapped.game.model;
 
+import java.io.Serializable;
+
 /**
  * An object representing a choice to be made
  * @author Alexander Hennie-Roed

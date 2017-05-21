@@ -1,11 +1,19 @@
 package main.java.com.trapped.game.ui.screencontrollers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import main.java.com.trapped.game.fxapp.TrappedGame;
+import main.java.com.trapped.game.gamedata.Settings;
 import main.java.com.trapped.game.model.Choice;
 import main.java.com.trapped.game.model.Script;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  * The controller for GameScreen.fxml
@@ -36,6 +44,20 @@ public class GameScreenController extends ScreenController {
     }
 
     @FXML
+    public void saveGame() {
+        try {
+            FileOutputStream fout = new FileOutputStream(new File("D:\\savegame.ser"));
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            oos.writeObject(myApp.getStoryHandler());
+            fout.close();
+            oos.close();
+        } catch (IOException e) {
+            System.out.println("Failed to save file.");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void makeChoice() {
         Choice choice = (Choice) choicesListView.getSelectionModel().getSelectedItem();
         if (choice != null) {
@@ -51,7 +73,7 @@ public class GameScreenController extends ScreenController {
      */
     private void updateScript() {
         descriptionTextLabel.setText(script.getDescriptionText());
-        choicesListView.setItems(script.getChoices());
+        choicesListView.setItems(FXCollections.observableArrayList(script.getChoices()));
     }
 
 }

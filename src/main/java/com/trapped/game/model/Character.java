@@ -1,5 +1,6 @@
 package main.java.com.trapped.game.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -7,7 +8,7 @@ import java.util.HashMap;
  * @author Alexander Hennie-Roed
  * @version 1.0.0
  */
-public class Character {
+public class Character implements Serializable {
 
     private String name;
     private HashMap<Character, Integer> relationships;

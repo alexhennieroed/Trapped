@@ -1,6 +1,5 @@
 package main.java.com.trapped.game.util;
 
-import javafx.collections.FXCollections;
 import main.java.com.trapped.game.fxapp.TrappedGame;
 import main.java.com.trapped.game.logic.StoryHandler;
 import main.java.com.trapped.game.model.Action;
@@ -61,8 +60,7 @@ public class ScriptLoader {
                         processAction(secondSplit[1], scriptChar), firstSplit[1]));
             }
 
-            return new Script(name, scriptChar, description,
-                    FXCollections.observableArrayList(choices));
+            return new Script(name, scriptChar, description, choices);
         } catch (IOException e) {
             System.out.println("Error finding the file.");
             e.printStackTrace();

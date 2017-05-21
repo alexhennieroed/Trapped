@@ -4,8 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.java.com.trapped.game.gamedata.Settings;
 import main.java.com.trapped.game.logic.StoryHandler;
 import main.java.com.trapped.game.ui.screencontrollers.ScreenController;
+import main.java.com.trapped.game.util.ScriptLoader;
 
 import java.io.IOException;
 
@@ -16,12 +18,14 @@ public class TrappedGame extends Application {
 
     private Stage mainStage;
     private StoryHandler handler;
+    private ScriptLoader sl;
 
     @Override
     public void start(Stage stage) {
         handler = new StoryHandler(this);
+        sl = new ScriptLoader(this, handler);
         mainStage = stage;
-        mainStage.setTitle("Trapped");
+        mainStage.setTitle(Settings.GAME_TITLE);
         mainStage.setWidth(800);
         mainStage.setMaxWidth(800);
         mainStage.setMinWidth(800);
@@ -66,5 +70,11 @@ public class TrappedGame extends Application {
      * @return the story handler
      */
     public StoryHandler getStoryHandler() { return handler; }
+
+    /**
+     * Returns the script loader
+     * @return the script loader
+     */
+    public ScriptLoader getSl() { return sl; }
 
 }
