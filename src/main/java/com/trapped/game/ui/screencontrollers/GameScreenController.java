@@ -41,7 +41,7 @@ public class GameScreenController extends ScreenController {
         if (choice != null) {
             choice.doAction();
         }
-        myApp.getStoryHandler().progressStory();
+        myApp.getStoryHandler().progressStory(choice.getNextScript());
         script = myApp.getStoryHandler().getScript();
         updateScript();
     }

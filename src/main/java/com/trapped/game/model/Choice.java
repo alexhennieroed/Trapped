@@ -9,6 +9,19 @@ public class Choice {
 
     private String name;
     private Action action;
+    private String nextScript;
+
+    /**
+     * Creates a new choice object
+     * @param name the name of the choice
+     * @param action the action associated with the choice
+     * @param nextScript the script triggered by this choice
+     */
+    public Choice(String name, Action action, String nextScript) {
+        this.name = name;
+        this.action = action;
+        this.nextScript = nextScript;
+    }
 
     /**
      * Creates a new choice object
@@ -16,8 +29,7 @@ public class Choice {
      * @param action the action associated with the choice
      */
     public Choice(String name, Action action) {
-        this.name = name;
-        this.action = action;
+        this(name, action, "0-0-00");
     }
 
     /**
@@ -32,6 +44,12 @@ public class Choice {
      * @return a string representing the name of the choice
      */
     public String getName() { return name; }
+
+    /**
+     * Returns the next script of the choice
+     * @return a string representing the next script
+     */
+    public String getNextScript() { return nextScript; }
 
     @Override
     public String toString() { return name; }

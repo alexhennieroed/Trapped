@@ -38,17 +38,20 @@ public class StoryHandler implements Serializable {
         }
         characterList = makeCharacters();
         sl = new ScriptLoader(myApp, this);
-        currentScript = sl.loadScript("0-0-00");
-        currentCharacter = currentScript.getViewingCharacter();
+        currentScript = null;
+        currentCharacter = null;
     }
 
     /**
      * Moves the story forward by intelligently selecting scripts
      * based on the player's decisions
      */
-    public void progressStory() {
-        //TODO
-        System.out.println("Progressing story...");
+    public void progressStory(String newScript) {
+        if (currentScript == null) {
+            newScript = "0-0-00";
+        }
+        currentScript = sl.loadScript(newScript);
+        currentCharacter = currentScript.getViewingCharacter();
     }
 
     /**

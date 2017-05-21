@@ -1,4 +1,4 @@
-package tools.ScriptCreator;
+package ScriptCreator;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

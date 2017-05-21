@@ -1,4 +1,4 @@
-package tools.ScriptCreator;
+package ScriptCreator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

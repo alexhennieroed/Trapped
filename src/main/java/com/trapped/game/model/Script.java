@@ -32,11 +32,9 @@ public class Script {
      * No parameter script constructor
      */
     public Script() {
-        this.name = "Default";
-        this.viewingCharacter = new Character("Default");
-        this.descriptionText = "Default Text";
-        this.choices = FXCollections.observableArrayList(new Choice("Default Action",
-                () -> System.out.println("Default")));
+        this("Default", new Character("Default"), "Default Text",
+                FXCollections.observableArrayList(new Choice("Default Action",
+                () -> System.out.println("Default"))));
     }
 
     /**

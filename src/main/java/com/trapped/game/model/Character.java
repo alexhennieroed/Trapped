@@ -106,7 +106,7 @@ public class Character {
     /**
      * Represents a trait of a character
      */
-    private enum Trait {
+    public enum Trait {
 
         CARING("Caring"),
         FUNNY("Funny"),
